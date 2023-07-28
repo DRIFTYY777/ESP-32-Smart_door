@@ -1,0 +1,7 @@
+{
+    "FSharp.suggestGitignore": false,
+    "files.associations": {
+        "*.tcc": "cpp",
+        "algorithm": "cpp"
+    }
+}
