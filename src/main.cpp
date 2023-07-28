@@ -21,7 +21,7 @@ void loop() {
   bool switchState = digitalRead(SWITCH_PIN) == HIGH; // Low means the switch is activated
   delay(20);
   if (switchState) {
-    rainbowMovingEffect(); // Replace this with your desired color pattern or animation function
+    rainbowMovingEffect(); 
   } else {
     FastLED.clear(); // Turn off all LEDs
     FastLED.show();
@@ -31,23 +31,18 @@ void loop() {
 void rainbowMovingEffect() {
   static uint8_t startIndex = 0;
   static uint8_t animationDelay = 50;
-
   // Update the LED colors
   for (int i = 0; i < NUM_LEDS; i++) {
     int hue = ((i * 256 / NUM_LEDS) + startIndex) % 256;
     leds[i] = CHSV(hue, 255, 255);
   }
-
   FastLED.show();
-
   // Increment the startIndex for the next frame of animation
   startIndex++;
-
   // Reset the startIndex when it reaches the end of the LED strip
   if (startIndex >= 256) {
     startIndex = 0;
   }
-
   delay(animationDelay);
 }
 
